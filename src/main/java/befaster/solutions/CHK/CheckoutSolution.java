@@ -19,9 +19,11 @@ public class CheckoutSolution {
         }
         int total = 0;
         total += calculatePrice(itemCounts, 'A', 50, 3,130);
-        total += calculatePrice(itemCounts, 'B', 50, 3,130);
+        total += calculatePrice(itemCounts, 'B', 30, 2,45);
+        total += calculatePrice(itemCounts, 'C', 20, 0,0);
+        total += calculatePrice(itemCounts, 'D', 15, 0,0);
 
-
+        return total;
     }
 
 
@@ -32,7 +34,7 @@ public class CheckoutSolution {
         {
             int specialCount = count/ specialQuantity;
             int remainder = count % specialQuantity;
-            return specialCount * spefcialPrice + remainder * unitPrice;
+            return specialCount * specialPrice + remainder * unitPrice;
         }else
         {
             return count * unitPrice;
@@ -40,5 +42,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
