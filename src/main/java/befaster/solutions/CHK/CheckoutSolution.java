@@ -20,19 +20,20 @@ public class CheckoutSolution {
         }
         int total = 0;
         total += calculatePrice(itemCounts, 'A', 50, new int[]{5,3}, new int[]{200, 130});
-        total += calculatePrice(itemCounts, 'B', 30, new int[]{5,3}, new int[]{200, 130});
-        total += calculatePrice(itemCounts, 'C', 20, new int[]{5,3}, new int[]{200, 130});
-        total += calculatePrice(itemCounts, 'D', 15, new int[]{5,3}, new int[]{200, 130});
-
+        total += calculatePrice(itemCounts, 'B', 30, new int[]{2}, new int[]{45});
+        total += calculatePrice(itemCounts, 'C', 20, new int[]{}, new int[]{});
+        total += calculatePrice(itemCounts, 'D', 15, new int[]{}, new int[]{});
+        total += calculatePriceWithFreeItem(itemCounts, 'E',40,2,'B');
         return total;
     }
 
 
-    private int calculatePrice(Map<Character, Integer> itemCounts, char item, int unitPrice, int[] specialQuantity, int[] specialPrice) {
+    private int calculatePrice(Map<Character, Integer> itemCounts, char item, int unitPrice, int[] specialQuantities, int[] specialPrices) {
         int count = itemCounts.getOrDefault(item, 0);
-        for (int i = 0; i < specialQuantity.length; i++) {
-            int specialCount = count / specialQuantity[i];
-            total += specialCount * specialPrice[i];
+        int total = 0;
+        for (int i = 0; i < specialQuantities.length; i++) {
+            int specialCount = count / specialQuantities[i];
+            total += specialCount * specialPrices[i];
         }
         total += count * unitPrice;
         return total;
@@ -53,3 +54,4 @@ public class CheckoutSolution {
     }
 
 }
+
