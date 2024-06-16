@@ -12,7 +12,7 @@ public class CheckoutSolution {
         }
         Map<Character, Integer> itemCounts = new HashMap<>();
         for (char sku : skus.toCharArray()){
-            if (sku != 'A' && sku != 'B' && sku != 'C' && sku != 'D' && sku != 'E' ){
+            if (sku != 'A' && sku != 'B' && sku != 'C' && sku != 'D' && sku != 'E'){
                 return -1; //invalid input
             }
             itemCounts.put(sku, itemCounts.getOrDefault(sku, 0) + 1);
@@ -42,6 +42,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
